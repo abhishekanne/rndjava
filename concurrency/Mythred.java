@@ -1,2 +1,6 @@
-package concurrency;public class Mythred {
+package concurrency;
+
+public class Mythred extends Thread {
+
+
 }
