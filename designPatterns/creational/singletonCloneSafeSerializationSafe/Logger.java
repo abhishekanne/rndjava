@@ -1,6 +1,9 @@
-package designPatterns.creational.singletonCloneSafe;
+package designPatterns.creational.singletonCloneSafeSerializationSafe;
 
-public class Logger implements Cloneable{
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Logger implements Cloneable, Serializable {
 
     private static volatile Logger instance;
 
@@ -23,9 +26,14 @@ public class Logger implements Cloneable{
     }
 
     @Override
-    public  Object clone() throws CloneNotSupportedException {
+    protected   Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
 
+    }
+
+    protected Object readResolve(){
+
+        return getInstance();
     }
 
 
